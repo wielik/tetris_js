@@ -1,15 +1,33 @@
 
+
+
 (function () {
 
     const arena = document.getElementById("arena");
-    const placedBlocksContainer = document.getElementById("placedBlocks");
     
     const blockContainer = document.createElement("div");
+    const placedBlocksContainer = document.getElementById("placedBlocksContainer");
     blockContainer.id = "blockContainer";
-    arena.appendChild(blockContainer);  
+    arena.appendChild(blockContainer);
     
+    function fillPlacedBlocksWithEmptyTiles() {
+        const fragment = document.createDocumentFragment();
+        const singleBlock = document.createElement("div");
+        singleBlock.classList = "block hide";
+
+        for(let i = 0; i < arena.offsetWidth; i += 17){
+            for(let j = 0; j < arena.offsetHeight; j += 17) {
+                const fragmentBlock = singleBlock.cloneNode(true);
+                fragment.appendChild(fragmentBlock);
+                //console.log(fragment);
+            }
+        }
+
+        placedBlocksContainer.appendChild(fragment);
+    }
+
     function spawnNewBlock() {
-        const blockArray =  factory.getElement();
+        const blockArray = factory.getElement();
         const blockContainerHtml = "<div id=\"blockContainer\"></div>"; 
         const block = document.createElement("div");
         block.classList.add("block");
@@ -66,7 +84,7 @@
 
         for(let i = 0, ln = obj.children.length; i < ln; i++) {
             //for(let j = 0; j < obj.length[i])
-            placedBlocksContainer.appendChild(obj.children[0]);
+            //placedBlocksContainer.appendChild(obj.children[0]);
             console.log("BLA");
         }
 
@@ -75,20 +93,20 @@
     function startGame() {
         putBlockOnStartingPosition(blockContainer);
         const intervalID = setInterval(function () {
-            moveBlock(blockContainer);
-            console.log("interval sie uruchomil");
             if(isPlaced(blockContainer, arena)){
                 transformIntoPlacedBlocks(blockContainer);
                 console.log('JEBłO');
-                //arena.removeChild(blockContainer);
                 clearInterval(intervalID);
                 //spawnNewBlock();
                 //putBlockOnStartingPosition(blockContainer);
             }
+            moveBlock(blockContainer);
+            console.log("interval sie uruchomil");
+
         }, 1000 / 6);
     }
 
-
+    fillPlacedBlocksWithEmptyTiles();
     spawnNewBlock();
 
     startGame();

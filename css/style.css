@@ -8,7 +8,7 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 450px;
+    width: 480px;
     height: 595px;
     font-size: 0;
     transform: translate(-50%, -50%);
@@ -16,10 +16,10 @@ body {
 }
 
 .game #arena {
-    position: relative;
+    position: absolute;
     float: left;
     clear: left;
-    width: 300px;
+    width: 340px;
     height: 595px;
     border: 2px solid #ccc;
 }
@@ -43,6 +43,14 @@ body {
     display: inline-block;
 }
 
+#arena .placedBlocks {
+    color: red;
+}
+
+#placedBlocksContainer {
+    width: 100%;
+    height: 100%;
+}
 .infopanel {
     float: right;
     clear: right;
