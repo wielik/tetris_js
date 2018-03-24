@@ -9,35 +9,45 @@ body {
     top: 50%;
     left: 50%;
     width: 450px;
-    height: 600px;
+    height: 595px;
     font-size: 0;
     transform: translate(-50%, -50%);
     outline: none;
 }
 
-.game .arena {
+.game #arena {
     position: relative;
     float: left;
     clear: left;
     width: 300px;
-    height: 600px;
+    height: 595px;
     border: 2px solid #ccc;
 }
 
-.arena .block {
-    position: absolute;
+#arena .block {
+    position: relative;
     width: 15px;
     height: 15px; 
     border-radius: 10%;
     border: 1px solid #ccc;
     background-color: green;
+    display: inline-block;
+}
+
+#arena .block.hide {
+    visibility: hidden;
+}
+
+#arena #blockContainer {
+    position: relative;
+    display: inline-block;
 }
 
 .infopanel {
     float: right;
     clear: right;
     width: 100px;
-    height: 600px;
+    height: 595px;
     padding: 0 10px;
     border: 2px solid #ccc;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
