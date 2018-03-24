@@ -120,7 +120,7 @@
             switch(e.keyCode) {
                 case 38: {
                     //strzalka w gore
-                    blockContainer = rotateBlock(blockArray);
+                    rotateBlock(blockArray);
                     console.log("OBROC");
                     break;
                 }
