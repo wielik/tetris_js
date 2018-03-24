@@ -1,0 +1,25 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.game {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 410px;
+    height: 270px;
+    font-size: 0;
+    transform: translate(-50%, -50%);
+    outline: none;
+}
+
+.game .arena {
+    position: relative;
+    float: left;
+    clear: left;
+    width: 320px;
+    height: 270px;
+    border: 1px solid #ccc;
+}
