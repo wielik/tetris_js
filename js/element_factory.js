@@ -1,5 +1,5 @@
-var factory = {};
 (function(){
+
 
      let gameCfg;
      (function () {
@@ -15,10 +15,13 @@ var factory = {};
             factory.getElement = function createElement() {
                 let arrayOfElements = gameCfg.elementsTypes;
                 let randomizedElementFromArray = Math.floor(Math.random() * arrayOfElements.length);
-                return arrayOfElements[randomizedElementFromArray];
+                return arrayOfElements[randomizedElementFromArray].desc;
             };
-
             console.log(factory.getElement());
+
+            var script = document.createElement('script');
+            script.src = "js/tetris.js";
+            document.body.appendChild(script);
         });
         xhr.send();
 

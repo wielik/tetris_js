@@ -5,8 +5,7 @@
     const placedBlocksContainer = document.getElementById("placedBlocks");
     
     function spawnNewBlock() {
-
-        const blockArray =  [[1, 1, 1], [0, 1, 0]]; 
+        const blockArray =  factory.getElement();
         const blockContainerHtml = "<div id=\"blockContainer\"></div>"; 
         const block = document.createElement("div");
         block.classList.add("block");
