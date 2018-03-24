@@ -4,15 +4,16 @@
     const arena = document.getElementById("arena");
     const placedBlocksContainer = document.getElementById("placedBlocks");
     
+    const blockContainer = document.createElement("div");
+    blockContainer.id = "blockContainer";
+    arena.appendChild(blockContainer);  
+    
     function spawnNewBlock() {
         const blockArray =  factory.getElement();
         const blockContainerHtml = "<div id=\"blockContainer\"></div>"; 
         const block = document.createElement("div");
         block.classList.add("block");
         
-        arena.innerHTML = blockContainerHtml;
-        blockContainer = document.getElementById("blockContainer");
-
         const fragment = document.createDocumentFragment();
         blockContainer.style.width = (blockArray[0].length * 17) + "px";
         blockContainer.style.height = (blockArray.length * 17) + "px";
@@ -38,8 +39,6 @@
     
     function moveBlock(obj) {
         obj.style.top = obj.offsetTop + 17 + "px";
-        console.log("wysokosc kontenera " + obj.offsetHeight);
-        console.log("pozycja kontenera " + obj.offsetTop);
     }
 
     function isBorderCollison(movingObj) {
@@ -64,23 +63,33 @@
     }
 
     function transformIntoPlacedBlocks(obj) {
-        placedBlocksContainer.appendChild(obj);
+
+        for(let i = 0, ln = obj.children.length; i < ln; i++) {
+            //for(let j = 0; j < obj.length[i])
+            placedBlocksContainer.appendChild(obj.children[0]);
+            console.log("BLA");
+        }
+
     }
 
     function startGame() {
+        putBlockOnStartingPosition(blockContainer);
         const intervalID = setInterval(function () {
             moveBlock(blockContainer);
             console.log("interval sie uruchomil");
             if(isPlaced(blockContainer, arena)){
                 transformIntoPlacedBlocks(blockContainer);
-                console.log('JEBLO');
+                console.log('JEBłO');
+                //arena.removeChild(blockContainer);
                 clearInterval(intervalID);
+                //spawnNewBlock();
+                //putBlockOnStartingPosition(blockContainer);
             }
-        }, 1000 / 2);
+        }, 1000 / 6);
     }
 
 
     spawnNewBlock();
-    putBlockOnStartingPosition(blockContainer);
+
     startGame();
 }());
