@@ -8,8 +8,8 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 410px;
-    height: 270px;
+    width: 450px;
+    height: 600px;
     font-size: 0;
     transform: translate(-50%, -50%);
     outline: none;
@@ -19,7 +19,47 @@ body {
     position: relative;
     float: left;
     clear: left;
-    width: 320px;
-    height: 270px;
+    width: 300px;
+    height: 600px;
+    border: 2px solid #ccc;
+}
+
+.arena .block {
+    position: absolute;
+    width: 15px;
+    height: 15px; 
+    border-radius: 10%;
     border: 1px solid #ccc;
+    background-color: green;
+}
+
+.infopanel {
+    float: right;
+    clear: right;
+    width: 100px;
+    height: 600px;
+    padding: 0 10px;
+    border: 2px solid #ccc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.infopanel .nextPiece {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.infopanel .nextPiece .nextPieceContainer {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ccc;
 }
