@@ -39,7 +39,8 @@ body {
 }
 
 #arena #blockContainer {
-    position: relative;
+    top: 0px;
+    position: absolute;
     display: inline-block;
 }
 
@@ -48,6 +49,8 @@ body {
 }
 
 #placedBlocksContainer {
+    top: 0px;
+    position: absolute;
     width: 100%;
     height: 100%;
 }
