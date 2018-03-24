@@ -35,7 +35,7 @@ body {
 }
 
 #arena .block.hide {
-    visibility: hidden;
+    background-color: yellow;
 }
 
 #arena #blockContainer {
@@ -45,7 +45,7 @@ body {
 }
 
 #arena .placedBlocks {
-    color: red;
+    background-color: red;
 }
 
 #placedBlocksContainer {
